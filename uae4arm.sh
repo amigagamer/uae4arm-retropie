@@ -31,11 +31,7 @@ function build_uae4arm() {
 
 }
 function install_uae4arm() {
-  # unzip -o "AndroidData/guichan26032014.zip" -d "$md_inst"
-  #  unzip -o "AndroidData/data.zip" -d "$md_inst"
-  #  unzip -o "AndroidData/aros20140110.zip" -d "$md_inst"
-
-	cp data "$md_inst" -r
+ 	cp data "$md_inst" -r
 	md_ret_files=(
         'uae4arm'
   #      'uae4all'
