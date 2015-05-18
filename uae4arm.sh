@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#UAE4arm raspberry pi2 buildscript for RetroPie.
-#NOT CURRENTLY WORKING
+#UAE4arm raspberry pi2 buildscript for RetroPie by amigagamer.
+#UAE4arm by tomb (pandora), ported to android by lubomyr, raspberry pi enhancements by Chips
 #based on exobuzz uae4all2 script
 # This script is not an official part of retropie
 #Retropie information and licensing follows
