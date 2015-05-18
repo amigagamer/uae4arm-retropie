@@ -14,7 +14,7 @@
 #
 
 rp_module_id="uae4arm"
-rp_module_desc="Amiga emulator with JIT support"
+rp_module_desc="Amiga emulator RPI2 with JIT support"
 rp_module_menus="4+"
 
 function depends_uae4arm() {
@@ -27,7 +27,7 @@ function sources_uae4arm() {
 
 function build_uae4arm() {
     make
-    md_ret_require="$md_build/uae4arm-rpi"
+    md_ret_require="$md_build/uae4arm"
 
 }
 function install_uae4arm() {
@@ -48,6 +48,9 @@ function configure_uae4arm() {
    #   echo "path=$romdir/amiga" >"$md_inst/conf/adfdir.conf"
     chown -R $user:$user "$md_inst/conf"
 
+	mkdir -p "$md_inst/kickstarts"
+	chown -R $user:$user "md_inst/conf"
+	
     # symlinks to optional kickstart roms in our BIOS dir
     for rom in kick12.rom kick13.rom kick20.rom kick31.rom; do
         ln -sf "$biosdir/$rom" "$md_inst/kickstarts/$rom"
@@ -55,6 +58,7 @@ function configure_uae4arm() {
 
     rm -f "$md_inst/uae4all.sh" "$romdir/amiga/Start.txt"
     cat > "$romdir/amiga/+Start UAE4Arm.sh" << _EOF_
+#!/bin/bash
 pushd "$md_inst"
 $rootdir/supplementary/runcommand/runcommand.sh 0 ./uae4arm "$md_id"
 popd
